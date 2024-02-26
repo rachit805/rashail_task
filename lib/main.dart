@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:rasail_task/UI/homeScreen.dart';
 import 'package:rasail_task/UI/loginScreen.dart';
-import 'package:rasail_task/UI/otpVerification.dart';
-import 'package:rasail_task/controller/otpController.dart';
+import 'package:rasail_task/controller/loginController.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: LoginScreen(),
+      home: HomeScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

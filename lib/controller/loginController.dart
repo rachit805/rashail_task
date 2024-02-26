@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:rasail_task/UI/otpVerification.dart';
+import 'package:rasail_task/UI/otpVer_Screen.dart';
 
 Future<void> mobileOtpLogin(BuildContext context, String phoneNumber) async {
   const baseUrl = 'https://rsfpsoftware.gowild.co.in';
@@ -26,8 +26,13 @@ Future<void> mobileOtpLogin(BuildContext context, String phoneNumber) async {
 
     if (response.statusCode == 200) {
       print('API Request Successful: ${response.body}');
+      // ignore: use_build_context_synchronously
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => OTPVerification()));
+          context,
+          MaterialPageRoute(
+              builder: (context) => OTPVerification(
+                    phoneNumber: phoneNumber,
+                  )));
     } else {
       print('API Request Failed: ${response.statusCode}, ${response.body}');
     }

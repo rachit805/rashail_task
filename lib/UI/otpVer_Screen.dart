@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:pin_input_text_field/pin_input_text_field.dart';
+import 'package:rasail_task/controller/otpVerController.dart';
 import 'package:timer_count_down/timer_count_down.dart';
 
+// ignore: must_be_immutable
 class OTPVerification extends StatelessWidget {
-  const OTPVerification({super.key});
+  final String phoneNumber;
+  OTPVerification({super.key, required this.phoneNumber});
+  TextEditingController pinController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -58,6 +62,7 @@ class OTPVerification extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 20),
                   child: PinInputTextField(
+                    controller: pinController,
                     pinLength: 6,
                     decoration: BoxLooseDecoration(
                       strokeColorBuilder:
@@ -117,13 +122,13 @@ class OTPVerification extends StatelessWidget {
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      verifyOtp(context, phoneNumber, pinController.text);
+                    },
                     child: Container(
-                      // alignment: Alignment.bottomCenter,
                       decoration: BoxDecoration(
                         color: Colors.amberAccent,
                         borderRadius: BorderRadius.circular(5),
-                        // border: Border.all(color: Colors.black)
                       ),
                       height: 50,
                       width: MediaQuery.of(context).size.width,

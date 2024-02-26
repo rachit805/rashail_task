@@ -2,7 +2,7 @@ import 'package:country_pickers/country.dart';
 import 'package:country_pickers/country_picker_dropdown.dart';
 import 'package:country_pickers/utils/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:rasail_task/controller/otpController.dart';
+import 'package:rasail_task/controller/loginController.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
